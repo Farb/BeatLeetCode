@@ -1,7 +1,7 @@
 package main
 
 import "strings"
-
+//https://leetcode-cn.com/problems/length-of-last-word/
 func lengthOfLastWord(s string) int {
 	arr:=strings.Split(strings.Trim(s," ")," ")
 	return len(arr[len(arr)-1])
