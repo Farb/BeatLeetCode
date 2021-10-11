@@ -4,19 +4,12 @@ package main
 func rotateString(s string, goal string) bool {
 	a := []byte(s)
 	for i := 0; i < len(a); i++ {
-		a = append(a[1:], reverse(a[:1])...)
+		a = append(a[1:], a[:1]...)
 		if string(a) == goal {
 			return true
 		}
 	}
 	return false
-}
-
-func reverse(arr []byte) []byte {
-	for i := 0; i < len(arr); i++ {
-		arr[i], arr[len(arr)-1-i] = arr[len(arr)-1-i], arr[i]
-	}
-	return arr
 }
 
 func main() {

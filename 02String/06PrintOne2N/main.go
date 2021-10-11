@@ -12,10 +12,11 @@ func printNumbers(n int) []int {
 		return []int{}
 	}
 	max := int(math.Pow10(n))
-	res := make([]int, 0, max-n)
+	res := make([]int, 0, max-1)
 	for i := 1; i < max; i++ {
 		res = append(res, i)
 	}
+	fmt.Println(cap(res))
 	return res
 }
 
