@@ -6,14 +6,16 @@ package main
 // 否则，将最后一个元素后移一位，继续和倒数第2个元素比较，以此类推。
 func insertSort(nums []int) []int {
 	for i := 1; i < len(nums); i++ {
-		j := i - 1
-		tmp := nums[i] //这里必须先保存待排元素到临时变量，否则元素的挪位会覆盖待排元素
+		j := i - 1          //待排序数的左边第一个数下标
+		tmp := nums[i]      //这里必须先保存待排元素到临时变量，否则元素的挪位会覆盖待排元素
+		if tmp >= nums[j] { // 如果待排元素>=已排好序的最后一个元素，跳过本轮排序
+			continue
+		}
 		for ; j >= 0 && tmp < nums[j]; j-- {
 			nums[j+1] = nums[j] // 每个元素后移一位
 		}
-		if i != j+1 { // 如果待排元素>=已排好序的最后一个元素，跳过本轮排序
-			nums[j+1] = tmp
-		}
+		nums[j+1] = tmp //将待排元素插入相应位置
+
 	}
 	return nums
 }
