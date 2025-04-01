@@ -10,7 +10,7 @@ internal class P2278
         int letterCount = 0;
         foreach (char c in s)
         {
-            if (char.IsLetter(c))
+            if (char.Equals(c, letter))
             {
                 letterCount++;
             }
